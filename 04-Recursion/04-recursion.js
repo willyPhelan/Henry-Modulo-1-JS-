@@ -3,9 +3,12 @@
 // producto([1, 2, 5]) devuelve 10
 
 const producto = function (array) {
-  //escribe aqui tu codigo [7, 9, 3]
-
+//escribe aqui tu codigo [7, 9, 3]
+if (array.length === 1) return array[0];
+return array.shift() * producto(array);
 };
+
+
 
 // Recursividad en javascript con objetos
 // Dado un objeto con objetos anidados utilizar la recursión para crear una función
@@ -40,8 +43,13 @@ let obj = {
 };
 const isThere = function (obj, value) {
   // tu código aca
+  for ( const key in obj ) {
+    if (obj[key] === value) return true  ;
+    else if ( typeof obj[key] === 'object') return isThere(obj[key] , value) }
+    return false ; 
+  }
   
-};
+;
 console.log(isThere(obj, 6));
 
 
@@ -59,9 +67,14 @@ console.log(isThere(obj, 6));
 // "Par"
 
 let parImpar = (num) => {
- 
-};
-console.log(parImpar(7));
+  if (num === 0) {
+    return 'Par'  }
+    else if (num === 1) {
+      return 'Impar' }
+      else if (num > 0)  { return num } 
+      return parImpar (num -2)
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
