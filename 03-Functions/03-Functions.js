@@ -7,8 +7,33 @@ function timeConversion(time) {
   // timeConversion("12:60") // false
   // timeConversion("09:00 PM") // "21:00"
   // tu codigo acá
-
+  if (
+    time.slice(-2) === "AM" &&
+    parseInt(time.slice(3, 5), 10) < 60 &&
+    parseInt(time.slice(6, 8), 10) < 60
+  ) {
+    if (time.slice(0, 2) === "12") {
+      return "00" + time.slice(2, 8);
+    } else {
+      return time.slice(0, 8);
+    }
+  } else {
+    if (
+      parseInt(time.slice(0, 2), 10) < 13 &&
+      parseInt(time.slice(3, 5), 10) < 60 &&
+      parseInt(time.slice(6, 8), 10) < 60
+    ) {
+      let hora = parseInt(time.slice(0, 2), 10) + 12;
+      if (hora === 24) {
+        hora = "12";
+      }
+      return hora + time.slice(2, 8);
+    }
+    return false;
+  }
 }
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // EXTRAS ---------------------------------------------------------------------------------------------------------------------
@@ -20,8 +45,9 @@ Crear una funcion saludar que pueda fijar cada vez que la guardo en una variable
 Recibira en la funcion interna el nombre a quien tiene que saludar y retornara el saludo correspondiente seguido por el nombre al ser invocada
 */
 function saludar(saludo) {
+  return saludar ('Hola') }
   
-}
+
 
 /*---------------------------------------------------*/
 
