@@ -109,7 +109,7 @@ f    f    f
 // filtraQueue(array)
 // -> ["a", "b", [1, 2, 3]]
 
-function filtraQueue(arg) {
+function filtraQueue(arg) { a
   
 }
 
