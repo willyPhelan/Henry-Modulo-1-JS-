@@ -22,7 +22,14 @@ var controlAcces = function (queue, event) {
   // crean instancia de Queue
   // los que cumplen los rquerimientos solo agregan (push) al array sus names
   // en caso que no cumplan los dequeue de la queue
-  
+  let nombre = [] ; 
+  let numero = [] ; 
+  while (queue.size() > 0) {
+    let ( valor.age >= 18 && !numero.includes(valor.ticket.number) && !nombre.includes(valor.fullname) && event === valor.tikcet.event)
+    nombre.push(valor.fullname) ; 
+    numero.push(valor.tickets.number)
+  }
+  return nombre ;
 };
 
 // Test Queue

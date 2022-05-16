@@ -16,13 +16,34 @@ const { Stack, Queue } = require("../estructuras");
 
 function efectoEspejo(str) {
   //tu codigo aqui
+   var newStack = new Stack()
+    var secondStack = new Stack();
+    var array = str + " ";
+    
+    for ( let letras of array){
+      if (letras !== " "){
+        newStack.colocar(letras);
+      } else {
+        while (newStack.size()){
+          secondStack.colocar(newStack.quitar());
+        }
+        secondStack.colocar(" ");
+      }
+    }
+    
+    var newString = ""
+    var i = 0;
+    
+    while ( i < secondStack.size()-1){
+      newString = newString + secondStack.array[i];
+      i++
+    }
+    newStack.colocar(newString)
+    
+    return newStack.array[0]
+   
+  }
   
-}
-
-const stackito = new Stack();
-stackito.colocar({ name: "Jaja" });
-stackito.colocar(3);
-console.log(stackito);
 
 // [{{{{{{{{{{}}}}}}}}}}]
 // [{}{}{}{}{}]
