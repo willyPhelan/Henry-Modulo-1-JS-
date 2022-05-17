@@ -5,6 +5,7 @@ const { parse, stringify } = require("flatted/cjs");
 // Este metodo deberia retornar la cantidad de elementos de la lista
 LinkedList.prototype.size = function () {
   // Tu código acá
+  return this.len
 
 };
 
@@ -16,8 +17,18 @@ LinkedList.prototype.size = function () {
 // ACLARACIÓN: Se debe ordenar la lista original y no una nueva.
 LinkedList.prototype.orderList = function () {
   // Tu código aca:
-  
-};
+  let array = [] ; 
+  let current = this.head ;
+  while (current) { array.push(current.value) ;
+  current = current.next }
+  array.sort (function(a,b){ return a-b })
+  this.head = null ; 
+  while (array.length > 0 ) {
+    this.add (array.pop()) ; 
+    this.length-- }
+  }
+
+
 
 // agregar el metodo insert al prototipo de LinkedList.
 // Este metodo deberia recibir una posicion y un valor
@@ -25,7 +36,22 @@ LinkedList.prototype.orderList = function () {
 // tomar el head como posicion 1
 
 LinkedList.prototype.insert = function (data, pos) {
-  
+  if (this.len < pos && pos - this.len === 1) return this.add(data);
+  let newNodo = new Node(data);
+  let current = this.head;
+  console.log("1111111", current);
+  if (pos === 1) {
+    newNodo.next = current;
+    console.log("22222222", newNodo);
+    this.head = newNodo;
+  }
+  while (pos - 1 > 1) {
+    pos--;
+    current = current.next;
+  }
+  newNodo.next = current.next; // acá pos es 2
+  current.next = newNodo;
+  this.len++;
 };
 
 const miListitaEnlazada = new LinkedList();
