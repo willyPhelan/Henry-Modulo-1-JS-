@@ -9,10 +9,16 @@ const { BinarySearchTree } = require("../estructuras");
 //      (2)  (9)  (11)  (15)
 BinarySearchTree.prototype.search = function (value) {
   // Tu código aca:
+  if (value === this.value) return this.value ; 
+  if (this.left) {
+    return this.left.search(value) ; }
+    if (this.right) {
+      return this.right.search(value) ; }
+      return 'no se encontró el valor'
+    }
   
-};
 const miArbolito = new BinarySearchTree(11);
-miArbolito.insert(10);
+miArbolito.insert(10)
 miArbolito.insert(7);
 miArbolito.insert(12);
 miArbolito.insert(2);
@@ -38,9 +44,17 @@ console.log("search is: ", miArbolito.search(43));
 // [2, 9, 7, 11, 15, 12, "10"]
 BinarySearchTree.prototype.height = function () {
   // tu código aca:
+  if (!this.left && !this.right) { return 0 ; } else { 
+    if (this.left && !this.right) {
+      return this.left.height() +1 ; }
+      else if (!this.left && this.right) { 
+        return this.right.height() +1 } 
+        else { 
+          return Math.max(this.right.height()+1, this.left.height())
+        }
+      }
+    }
   
-};
-
 
 
 module.exports = {
